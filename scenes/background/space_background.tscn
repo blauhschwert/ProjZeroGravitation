@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://5qy3qnldw0i8"]
+
+[ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="1_pvlyq"]
+
+[node name="SpaceBackground" instance=ExtResource("1_pvlyq")]

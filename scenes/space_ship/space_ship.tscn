@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbfvjm7my0rrk"]
+
+[ext_resource type="Script" uid="uid://pxnfrkv7y1qr" path="res://scenes/space_ship/space_ship.gd" id="1_byl6i"]
+[ext_resource type="Texture2D" uid="uid://cpdcpgmypf7x" path="res://assets/Spaceships/ship/Oriole/oriole.png" id="1_w5ed5"]
+[ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/Spaceships/ship/main_thruster/main_thruster.tscn" id="2_byl6i"]
+[ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/Spaceships/ship/side_thruster/side_thruster.tscn" id="3_etmnf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5ed5"]
+radius = 15.0
+
+[node name="SpaceShip" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_byl6i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w5ed5")
+
+[node name="MainThruster" parent="." instance=ExtResource("2_byl6i")]
+position = Vector2(-8, -4.5474735e-13)
+scale = Vector2(0.3, 0.3)
+points = PackedVector2Array(0, 0, 33.333332, 0, 66.666664, 0)
+
+[node name="SideThruster" parent="." instance=ExtResource("3_etmnf")]
+position = Vector2(-13.000002, 6.000001)
+rotation = 1.0144125
+scale = Vector2(0.075, 0.075)
+
+[node name="SideThrusterUp" parent="." instance=ExtResource("3_etmnf")]
+position = Vector2(-13.000001, -5.9999995)
+rotation = 2.0097442
+scale = Vector2(0.075, 0.075)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_w5ed5")
+
+[node name="BoostTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="Attack_Position" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(12, 0)
+
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
