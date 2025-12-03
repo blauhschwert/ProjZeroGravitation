@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkdovnxpwyj2c"]
+[gd_scene load_steps=5 format=3 uid="uid://dkdovnxpwyj2c"]
 
 [ext_resource type="Script" uid="uid://csf0spj4obf8h" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://5qy3qnldw0i8" path="res://scenes/background/space_background.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cbfvjm7my0rrk" path="res://scenes/space_ship/space_ship.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bfv8kuuyfpre1" path="res://scenes/astroid/astroid.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
@@ -14,3 +15,6 @@ z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="SpaceShip"]
 zoom = Vector2(0.6, 0.6)
+
+[node name="Astroid" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(131, 60)

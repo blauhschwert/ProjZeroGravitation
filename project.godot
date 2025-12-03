@@ -19,8 +19,8 @@ config/icon="uid://vgthq323yh8r"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -72,6 +72,7 @@ next_skin={
 2d_physics/layer_3="Walls"
 2d_physics/layer_4="Enviroument"
 2d_physics/layer_5="Attack"
+2d_physics/layer_6="Obstacles"
 
 [rendering]
 

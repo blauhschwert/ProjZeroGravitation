@@ -1,0 +1,154 @@
+[gd_scene load_steps=18 format=3 uid="uid://ca8aksi6qk88d"]
+
+[ext_resource type="Script" uid="uid://bdsg1x13bs54x" path="res://scenes/battery/battery.gd" id="1_5d3fe"]
+[ext_resource type="Texture2D" uid="uid://bhfk0m0i7cv5m" path="res://assets/Batterie.png" id="1_f2ao4"]
+[ext_resource type="Texture2D" uid="uid://dpqf87mmqo8hy" path="res://assets/explosion_48.png" id="3_n4s2d"]
+[ext_resource type="AudioStream" uid="uid://cingrr57tfqox" path="res://assets/sounds/exp_0.wav" id="4_g32y3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g32y3"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ilm"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtv2g"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1caej"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im44n"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0bej"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hyn7"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7orr"]
+atlas = ExtResource("3_n4s2d")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqws2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g32y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7ilm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtv2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1caej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im44n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0bej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hyn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7orr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5d3fe"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_n4s2d"]
+resource_name = "explosion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20225963, 0.37228665, 0.5471485, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_g32y3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7ilm"]
+_data = {
+&"RESET": SubResource("Animation_g32y3"),
+&"explosion": SubResource("Animation_n4s2d")
+}
+
+[node name="Battery" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_5d3fe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f2ao4")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_jqws2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5d3fe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p7ilm")
+}
+autoplay = "RESET"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="Exp_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g32y3")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
