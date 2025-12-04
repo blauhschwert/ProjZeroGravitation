@@ -63,7 +63,7 @@ offset_bottom = 26.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_byl6i")
 max_value = 8.0
 step = 1.0
-value = 1.0
+value = 8.0
 show_percentage = false
 
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
