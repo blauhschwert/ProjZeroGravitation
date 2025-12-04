@@ -1,5 +1,7 @@
-class_name BlackHole
+class_name BlackHoleWeak
 extends Node2D
+
+signal hole_destroyed
 
 const TEXTURE_BATTERY_ICON = preload("res://assets/Pattern.png")
 const TEXTURE_BATTERY_STAMP = preload("res://assets/Batterie.png")
@@ -20,6 +22,7 @@ var shooting_dirs : Array = [
 ]
 
 var batter_array : Array[TextureRect] = []
+var current_index := 0
 var space_ship_ref : SpaceShip = null
 var gravitas : bool = false
 var is_exploiding : bool = false
@@ -45,11 +48,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !$ActiveNode.scale >= Vector2(5.0,5.0):
-		$ActiveNode.scale += Vector2(0.35,0.35) * delta
+	if !$ActiveNode.scale >= Vector2(3.0,3.0):
+		$ActiveNode.scale += Vector2(0.15,0.15) * delta
 		# If black hole gets to a specific size it should explode
 		if $ActiveNode.scale >= Vector2(5.0,5.0):
 			$Exp_Sound.play()
+			space_ship_ref.take_damage_neo.emit(1)
 			$ActiveNode/Explosion.visible = true
 			$ActiveNode/Explosion.play("explosion")
 			await explosion.animation_finished
@@ -59,6 +63,8 @@ func _process(delta: float) -> void:
 		#TODO : please can somebody create a way to fix that the space ship is moving
 		# 		to the center of the black hole
 		space_ship_ref.position.move_toward($ActiveNode/HoleMidPosition.position,delta)
+	
+	check_for_batterys()
 
 func set_space_ship_ref(ship_ref : SpaceShip) -> void:
 	space_ship_ref = ship_ref
@@ -69,20 +75,38 @@ func create_astroid() -> void:
 	astroid.set_direction(shooting_dirs.pick_random())
 	add_child(astroid)
 
+func check_for_batterys() -> void:
+	var curr_bats = 0
+	for e in batter_array:
+		if e.texture == TEXTURE_BATTERY_STAMP:
+			curr_bats += 1
+		else:
+			curr_bats += 0
+	
+	if curr_bats >= batter_array.size():
+		hole_destroyed.emit()
+		queue_free()
+	else:
+		#empty
+		pass
 
 func _on_inner_circle_body_entered(body: Node2D) -> void:
 	if body is SpaceShip:
-		body.set_speed(45.0)
+		space_ship_ref.set_speed(45)
+		if space_ship_ref.grab_ref != null:
+			print(space_ship_ref.grab_ref.get_slot())
+			batter_array[current_index].texture = TEXTURE_BATTERY_STAMP
+			current_index += 1
 
 
 func _on_outer_circle_body_entered(body: Node2D) -> void:
 	if body is SpaceShip:
-		body.set_speed(130.0)
+		space_ship_ref.set_speed(120)
 
 
 func _on_outer_circle_body_exited(body: Node2D) -> void:
 	if body is SpaceShip:
-		body.set_speed(230.0)
+		space_ship_ref.set_speed(180)
 
 
 func _on_gravita_field_body_entered(_body: Node2D) -> void:
@@ -95,10 +119,3 @@ func _on_gravita_field_body_exited(_body: Node2D) -> void:
 
 func _on_astroid_spawner_timeout() -> void:
 	create_astroid()
-
-
-func _on_explosion_field_body_entered(body: Node2D) -> void:
-	await explosion.animation_finished
-	if body is SpaceShip:
-		body.take_damage()
-		

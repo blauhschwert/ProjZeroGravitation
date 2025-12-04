@@ -1,3 +1,4 @@
+class_name Battery
 extends Area2D
 
 
@@ -7,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -18,4 +19,7 @@ func _on_timer_timeout() -> void:
 	$Explosion.visible = true
 	$Explosion.play("default")
 	await $Explosion.animation_finished
+	queue_free()
+
+func delete() -> void:
 	queue_free()

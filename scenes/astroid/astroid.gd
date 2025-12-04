@@ -2,7 +2,7 @@ class_name Asteroid
 extends Area2D
 
 var directon : Vector2 = Vector2.ZERO
-var speed : int = 130
+var speed : int = 65
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

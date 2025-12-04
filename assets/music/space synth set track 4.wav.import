@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqbug50w7v2pa"
+path="res://.godot/imported/space synth set track 4.wav-8c9e684dcc2048985b428a6be20590d7.sample"
+
+[deps]
+
+source_file="res://assets/music/space synth set track 4.wav"
+dest_files=["res://.godot/imported/space synth set track 4.wav-8c9e684dcc2048985b428a6be20590d7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

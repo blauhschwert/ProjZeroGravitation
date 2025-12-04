@@ -30,3 +30,5 @@ Want it longer, funnier, darker, or fitted to your exact game mechanics?
 - explosion Art : https://opengameart.org/content/explosion-48px-96px-and-vector-version
 
 - sound effects : https://raylibtech.itch.io/rfxgen
+
+- background : https://1144ghost.itch.io/atmospheric-space-music

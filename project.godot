@@ -15,6 +15,10 @@ run/main_scene="uid://dkdovnxpwyj2c"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://vgthq323yh8r"
 
+[autoload]
+
+GlobalsScript="*res://Globals/Globals.gd"
+
 [display]
 
 window/size/viewport_width=320
@@ -73,6 +77,7 @@ next_skin={
 2d_physics/layer_4="Enviroument"
 2d_physics/layer_5="Attack"
 2d_physics/layer_6="Obstacles"
+2d_physics/layer_7="Grab"
 
 [rendering]
 
