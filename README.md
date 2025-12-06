@@ -31,4 +31,4 @@ Want it longer, funnier, darker, or fitted to your exact game mechanics?
 
 - sound effects : https://raylibtech.itch.io/rfxgen
 
-- background : https://1144ghost.itch.io/atmospheric-space-music
+- background music : https://1144ghost.itch.io/atmospheric-space-music
