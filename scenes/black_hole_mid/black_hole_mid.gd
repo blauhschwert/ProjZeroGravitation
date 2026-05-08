@@ -3,8 +3,8 @@ extends Node2D
 
 signal hole_destroyed
 
-const TEXTURE_BATTERY_ICON = preload("res://assets/Pattern.png")
-const TEXTURE_BATTERY_STAMP = preload("res://assets/Batterie.png")
+const TEXTURE_BATTERY_ICON = preload("res://assets/battery/Pattern.png")
+const TEXTURE_BATTERY_STAMP = preload("res://assets/battery/Batterie.png")
 
 const ASTROID = preload("res://scenes/astroid/astroid.tscn")
 

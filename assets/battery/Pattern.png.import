@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sodol7hlvlty"
-path="res://.godot/imported/Pattern.png-2482f9802f8470165870c3b7cffb388e.ctex"
+path="res://.godot/imported/Pattern.png-d566129d4404672cc90238f0a78c7947.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pattern.png"
-dest_files=["res://.godot/imported/Pattern.png-2482f9802f8470165870c3b7cffb388e.ctex"]
+source_file="res://assets/battery/Pattern.png"
+dest_files=["res://.godot/imported/Pattern.png-d566129d4404672cc90238f0a78c7947.ctex"]
 
 [params]
 

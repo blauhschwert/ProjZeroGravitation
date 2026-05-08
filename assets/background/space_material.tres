@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cgvnmpq6vnska"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cgvnmpq6vnska"]
 
 [ext_resource type="Shader" uid="uid://dx1setststrb8" path="res://assets/background/star_field.gdshader" id="1_xe26a"]
 [ext_resource type="Texture2D" uid="uid://cqbb4hj2i16l4" path="res://assets/background/space_pattern_0.png" id="2_ke5wc"]
@@ -6,21 +6,21 @@
 
 [sub_resource type="Gradient" id="Gradient_ke5wc"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.3283582, 0.68955225)
-colors = PackedColorArray(1, 0.8156863, 0, 1, 0.8039216, 0.99607843, 0.45882353, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.003968254, 0.3283582, 0.68955225)
+colors = PackedColorArray(0.18400013, 0.04000002, 1, 0.6784314, 0.88, 0.88, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_13fdf"]
 gradient = SubResource("Gradient_ke5wc")
 
 [resource]
 shader = ExtResource("1_xe26a")
-shader_parameter/background_color = Color(0.18899485, 0.14115947, 0.5337377, 1)
+shader_parameter/background_color = Color(0.7763791, 0.13091467, 0.7441061, 1)
 shader_parameter/multiply_color = Color(0.5921569, 0.5882353, 0.6392157, 1)
 shader_parameter/space_pattern_sampler = ExtResource("2_ke5wc")
 shader_parameter/star_tile_sampler = ExtResource("3_6wsqn")
 shader_parameter/stars_color_gradient = SubResource("GradientTexture1D_13fdf")
 shader_parameter/seed = 0.008
 shader_parameter/chance = 0.988
-shader_parameter/base_scale = 0.75
-shader_parameter/star_count = 20.0
+shader_parameter/base_scale = 1.345
+shader_parameter/star_count = 29.5
 shader_parameter/view_offset = Vector2(0, 0)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr641fdhcsv21"
-path="res://.godot/imported/F0.png-45441f2933eef579d71179c60dd5eede.ctex"
+path="res://.godot/imported/light_saber.png-ccbdd108753e7a994adbb011e7898195.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/attacks/F0.png"
-dest_files=["res://.godot/imported/F0.png-45441f2933eef579d71179c60dd5eede.ctex"]
+source_file="res://assets/attacks/light_saber.png"
+dest_files=["res://.godot/imported/light_saber.png-ccbdd108753e7a994adbb011e7898195.ctex"]
 
 [params]
 

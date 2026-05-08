@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://djyidstytau4k"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://djyidstytau4k"]
 
 [ext_resource type="Shader" uid="uid://c1wn8bidkbkcs" path="res://assets/Spaceships/ship/ship_flame.gdshader" id="1_7mf8j"]
 

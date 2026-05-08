@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkdovnxpwyj2c"]
+[gd_scene format=3 uid="uid://dkdovnxpwyj2c"]
 
 [ext_resource type="Script" uid="uid://csf0spj4obf8h" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://5qy3qnldw0i8" path="res://scenes/background/space_background.tscn" id="1_yqjtg"]
@@ -10,31 +10,31 @@
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("5_iywne")
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1883612101]
 script = ExtResource("1_lnu2h")
 
-[node name="SpaceBackground" parent="." instance=ExtResource("1_yqjtg")]
+[node name="SpaceBackground" parent="." unique_id=1323746928 instance=ExtResource("1_yqjtg")]
 
-[node name="SpaceShip" parent="." instance=ExtResource("2_yqjtg")]
+[node name="SpaceShip" parent="." unique_id=1378069969 instance=ExtResource("2_yqjtg")]
 z_index = 1
 
-[node name="Camera2D" type="Camera2D" parent="SpaceShip"]
-zoom = Vector2(0.6, 0.6)
+[node name="Camera2D" type="Camera2D" parent="SpaceShip" unique_id=1128731552]
+zoom = Vector2(1.3, 1.3)
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=419105450]
 stream = ExtResource("4_lbhrr")
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=844403180]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=415101654]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="LevelCounter" type="Label" parent="CanvasLayer/Control"]
+[node name="LevelCounter" type="Label" parent="CanvasLayer/Control" unique_id=702130290]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -47,7 +47,7 @@ offset_bottom = 38.0
 grow_horizontal = 2
 theme = SubResource("Theme_p57ef")
 
-[node name="GameOverPanel" type="ColorRect" parent="CanvasLayer"]
+[node name="GameOverPanel" type="ColorRect" parent="CanvasLayer" unique_id=517369970]
 visible = false
 anchors_preset = -1
 anchor_left = 0.13900001
@@ -62,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.36, 0.36, 0.36, 0.8862745)
 
-[node name="Label" type="Label" parent="CanvasLayer/GameOverPanel"]
+[node name="Label" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1482037591]
 layout_mode = 0
 offset_left = 38.5
 offset_top = 53.5
