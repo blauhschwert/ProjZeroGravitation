@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://djc3v46lbrxy7"]
+
+[ext_resource type="Script" uid="uid://brgulx513p6af" path="res://scenes/space_ship/grab/grab.gd" id="1_f0ap5"]
+[ext_resource type="Texture2D" path="res://assets/Grab.png" id="1_p2eqi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2eqi"]
+radius = 5.0990195
+
+[node name="Grab" type="Node2D"]
+script = ExtResource("1_f0ap5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("1_p2eqi")
+hframes = 2
+
+[node name="Battery" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
+scale = Vector2(0.6, 0.6)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(12, 0)
+collision_layer = 64
+collision_mask = 32
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p2eqi")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

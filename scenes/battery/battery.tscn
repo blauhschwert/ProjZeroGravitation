@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca8aksi6qk88d"]
+[gd_scene format=3 uid="uid://ca8aksi6qk88d"]
 
 [ext_resource type="Script" uid="uid://bdsg1x13bs54x" path="res://scenes/battery/battery.gd" id="1_5d3fe"]
-[ext_resource type="Texture2D" uid="uid://bhfk0m0i7cv5m" path="res://assets/Batterie.png" id="1_f2ao4"]
-[ext_resource type="Texture2D" uid="uid://dpqf87mmqo8hy" path="res://assets/explosion_48.png" id="3_n4s2d"]
+[ext_resource type="Texture2D" uid="uid://bhfk0m0i7cv5m" path="res://assets/etc/battery/Batterie.png" id="1_f2ao4"]
+[ext_resource type="Texture2D" path="res://assets/explosion_48.png" id="3_n4s2d"]
 [ext_resource type="AudioStream" uid="uid://cingrr57tfqox" path="res://assets/sounds/exp_0.wav" id="4_g32y3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g32y3"]

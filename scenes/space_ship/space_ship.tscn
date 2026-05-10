@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbfvjm7my0rrk"]
+[gd_scene format=3 uid="uid://cbfvjm7my0rrk"]
 
 [ext_resource type="Script" uid="uid://pxnfrkv7y1qr" path="res://scenes/space_ship/space_ship.gd" id="1_byl6i"]
-[ext_resource type="Texture2D" uid="uid://cpdcpgmypf7x" path="res://assets/Spaceships/ship/Oriole/oriole.png" id="1_w5ed5"]
+[ext_resource type="Texture2D" uid="uid://cpdcpgmypf7x" path="res://assets/Spaceships/ship/Capella/Capella.png" id="1_w5ed5"]
 [ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/Spaceships/ship/main_thruster/main_thruster.tscn" id="2_byl6i"]
 [ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/Spaceships/ship/side_thruster/side_thruster.tscn" id="3_etmnf"]
 
@@ -21,41 +21,41 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="SpaceShip" type="CharacterBody2D"]
+[node name="SpaceShip" type="CharacterBody2D" unique_id=723755652]
 collision_mask = 0
 script = ExtResource("1_byl6i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000071378]
 texture = ExtResource("1_w5ed5")
 
-[node name="MainThruster" parent="." instance=ExtResource("2_byl6i")]
-position = Vector2(-8, -4.5474735e-13)
-scale = Vector2(0.3, 0.3)
+[node name="Thursters" type="Node2D" parent="." unique_id=1415971044]
+z_index = -1
+position = Vector2(-1, 0)
+scale = Vector2(0.25, 0.25)
+
+[node name="MainThruster" parent="Thursters" unique_id=839699387 instance=ExtResource("2_byl6i")]
+position = Vector2(-32, 4.5474735e-13)
 points = PackedVector2Array(0, 0, 33.333332, 0, 66.666664, 0)
 
-[node name="SideThruster" parent="." instance=ExtResource("3_etmnf")]
-position = Vector2(-13.000002, 6.000001)
+[node name="SideThrusterDown" parent="Thursters" unique_id=1838498683 instance=ExtResource("3_etmnf")]
+position = Vector2(-48.000004, 24)
 rotation = 1.0144125
-scale = Vector2(0.075, 0.075)
 
-[node name="SideThrusterUp" parent="." instance=ExtResource("3_etmnf")]
-position = Vector2(-13.000001, -5.9999995)
+[node name="SideThrusterUp" parent="Thursters" unique_id=835611711 instance=ExtResource("3_etmnf")]
+position = Vector2(-47.999996, -23.999994)
 rotation = 2.0097442
-scale = Vector2(0.075, 0.075)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270599780]
+visible = false
 position = Vector2(-3, 0)
 shape = SubResource("CircleShape2D_w5ed5")
 
-[node name="BoostTimer" type="Timer" parent="."]
+[node name="BoostTimer" type="Timer" parent="." unique_id=672842873]
 wait_time = 0.6
 one_shot = true
 
-[node name="Attack_Position" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(12, 0)
-
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=245665514]
+visible = false
 offset_left = -24.0
 offset_top = 20.0
 offset_right = 23.0

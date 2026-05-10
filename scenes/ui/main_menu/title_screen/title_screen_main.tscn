@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://djymboaf2e7jb"]
 
-[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/fonts/ARCADECLASSIC.TTF" id="1_7l5y1"]
 [ext_resource type="Script" uid="uid://b5w168nh4o4f0" path="res://scenes/ui/main_menu/title_screen/title_screen_main.gd" id="1_wcky1"]
 [ext_resource type="Theme" uid="uid://cnuo8xc644x4m" path="res://scenes/ui/themes/base_theme.tres" id="2_mbaqr"]
 
@@ -29,11 +28,10 @@ offset_top = -33.125
 offset_right = 190.0
 offset_bottom = 52.875
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.20412007, 0.097200006, 0.81, 1)
-theme_override_colors/font_shadow_color = Color(0.12500006, 0.75, 0, 0.78039217)
+theme_override_colors/font_color = Color(0.75, 0.7375, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.12479999, 0.12479999, 0.48, 0.80784315)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("1_7l5y1")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -59,16 +57,24 @@ alignment = 1
 [node name="StartButton" type="Button" parent="Buttuns" unique_id=1851587246]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Play"
+text = "CONTEXT_PLAY"
 
 [node name="Options" type="Button" parent="Buttuns" unique_id=309331637]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Options"
+text = "CONTEXT_OPTIONS"
+
+[node name="Credits" type="Button" parent="Buttuns" unique_id=862494760]
+layout_mode = 2
+size_flags_vertical = 3
+text = "CONTEXT_CREDITS"
 
 [node name="Exit" type="Button" parent="Buttuns" unique_id=1888817348]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Exit"
+text = "CONTEXT_EXIT"
 
+[connection signal="pressed" from="Buttuns/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttuns/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttuns/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttuns/Exit" to="." method="_on_exit_pressed"]

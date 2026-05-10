@@ -42,15 +42,7 @@ Every run is different thanks to randomized upgrades and enemy patterns.
 
 - Godot Engine
 
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/spacesurvivors.git
-
-
-# By Blauhschwert
+## By Blauhschwert 
 
 ## GDQuest Course Learn 2D GameDev from Zero with Godot 4
 - background and spaceship inspo : https://school.gdquest.com/courses/learn_2d_gamedev_godot_4/to_space_and_beyond/module_overview
@@ -60,3 +52,13 @@ git clone https://github.com/yourusername/spacesurvivors.git
 - sound effects : https://raylibtech.itch.io/rfxgen
 
 - background music : https://1144ghost.itch.io/atmospheric-space-music
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/spacesurvivors.git
+
+
+

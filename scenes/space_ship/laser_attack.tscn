@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://chiro82tf072a"]
+[gd_scene format=3 uid="uid://chiro82tf072a"]
 
-[ext_resource type="Texture2D" uid="uid://dr641fdhcsv21" path="res://assets/attacks/F0.png" id="1_ekxha"]
+[ext_resource type="Texture2D" path="res://assets/attacks/F0.png" id="1_ekxha"]
 [ext_resource type="Script" uid="uid://cosy7t81pe2vv" path="res://scenes/space_ship/laser_attack.gd" id="1_mktbd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mktbd"]

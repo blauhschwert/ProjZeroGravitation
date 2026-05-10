@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://cnuo8xc644x4m"]
 
-[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/fonts/ARCADECLASSIC.TTF" id="1_5onuy"]
+[ext_resource type="FontFile" uid="uid://cbsy1kd2n7qwv" path="res://assets/arcadeclassic/ARCADECLASSIC.TTF" id="1_5onuy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5onuy"]
 bg_color = Color(0.22620001, 0.31849992, 0.78, 0.78431374)
@@ -17,7 +17,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es0n0"]
-bg_color = Color(0.22620001, 0.31849992, 0.78, 0.78431374)
+bg_color = Color(0.75, 0.7375, 0, 1)
 skew = Vector2(0.25, 0)
 border_width_left = 6
 border_width_top = 3
@@ -31,7 +31,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osags"]
-bg_color = Color(0.0754, 0.10616664, 0.26, 0.78431374)
+bg_color = Color(0.7479813, 0.00024537058, 0.6955081, 1)
 skew = Vector2(0.25, 0)
 border_width_left = 6
 border_width_top = 3
@@ -45,6 +45,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [resource]
+Button/colors/font_color = Color(0.12479999, 0.12479999, 0.48, 1)
+Button/fonts/font = ExtResource("1_5onuy")
 Button/styles/hover = SubResource("StyleBoxFlat_5onuy")
 Button/styles/normal = SubResource("StyleBoxFlat_es0n0")
 Button/styles/pressed = SubResource("StyleBoxFlat_osags")
