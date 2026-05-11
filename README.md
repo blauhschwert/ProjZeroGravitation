@@ -44,7 +44,7 @@ Every run is different thanks to randomized upgrades and enemy patterns.
 
 ## By Blauhschwert 
 
-## GDQuest Course Learn 2D GameDev from Zero with Godot 4
+## Assets or Resourcess
 
 - background and spaceship inspo : https://school.gdquest.com/courses/learn_2d_gamedev_godot_4/to_space_and_beyond/module_overview
 
@@ -58,6 +58,9 @@ Every run is different thanks to randomized upgrades and enemy patterns.
 - weapon icons : https://percyes.itch.io/futuristic-sci-fi-inventory-icons
 
 - attack animations : https://nyknck.itch.io/fx084
+
+- 16bitDev : https://www.youtube.com/watch?v=ihlMhk1DzQU&list=PLDvxSFN380vCpiHGee6p2cMHraP_f_JOX
+
 
 ## Installation
 
