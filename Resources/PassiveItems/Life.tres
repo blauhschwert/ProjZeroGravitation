@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://dkqjxxk1va01i"]
+
+[ext_resource type="Script" uid="uid://cjq87wrbk18ca" path="res://scenes/etc/PassiveItem.gd" id="1_51ekg"]
+[ext_resource type="Texture2D" uid="uid://cb35s02wusv57" path="res://assets/Energy weapons/icons/Life.png" id="2_51ekg"]
+[ext_resource type="Script" uid="uid://dgcffmyxalprq" path="res://scenes/etc/Stats.gd" id="3_3fa17"]
+
+[sub_resource type="Resource" id="Resource_l0tb3"]
+script = ExtResource("3_3fa17")
+description = "+ 20 Health"
+max_health = 20.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_fcqdy"]
+script = ExtResource("3_3fa17")
+description = "+ 25 Health"
+max_health = 25.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_s1tki"]
+script = ExtResource("3_3fa17")
+description = "+ 35 Health
+"
+max_health = 35.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[resource]
+script = ExtResource("1_51ekg")
+upgrades = Array[ExtResource("3_3fa17")]([SubResource("Resource_l0tb3"), SubResource("Resource_fcqdy"), SubResource("Resource_s1tki")])
+title = "Health"
+texture = ExtResource("2_51ekg")
+metadata/_custom_type_script = "uid://cjq87wrbk18ca"

@@ -8,14 +8,29 @@ const NEBULAE = preload("res://assets/Spaceships/ship/Nebulae/Nebulae.png")
 const AURORAS = preload("res://assets/Spaceships/ship/Auroras/Auroras.png")
 const CAPELLA = preload("res://assets/Spaceships/ship/Capella/Capella.png")
 
-
 var health : float = 25:
 	set(value):
-		health = value
+		health = max(value, 0)
 		%HealthBar.value = value
 
 var nearest_enemy : Enemy
-var nearest_enemy_distance : float = INF
+var nearest_enemy_distance : float = 150 + area
+
+var max_health : float = 100:
+	set(value):
+		max_health = value
+		%HealthBar.max_value = value
+
+var recovery : float = 0
+var armor : float = 0
+var might : float = 1.5
+var area : float = 100
+var magnet : float = 0:
+	set(value):
+		magnet = value
+		%MagnetCollision.shape.radius = 50 + value
+var growth : float = 1
+
 
 var XP : int = 0:
 	set(value):
@@ -61,6 +76,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	emit_damage.connect(take_damage)
+	magnet = 100
 
 func _process(delta: float) -> void:
 	direction.x = Input.get_axis("move_left","move_right")
@@ -78,13 +94,14 @@ func _process(delta: float) -> void:
 	if is_instance_valid(nearest_enemy):
 		nearest_enemy_distance = nearest_enemy.separation
 	else:
-		nearest_enemy_distance = INF
-	
+		nearest_enemy_distance = 150 + area
+		nearest_enemy = null
 	
 	velocity += steering_vector * steering_factor * delta
 	move_and_collide(velocity * delta)
 	check_XP()
 	
+	health += recovery * delta
 	
 	if direction.length() > 0.0:
 		rotation = velocity.angle()
@@ -93,7 +110,7 @@ func set_speed(current_speed : int) -> void:
 	normal_speed = current_speed
 
 func take_damage(amount : int) -> void:
-	health -= amount
+	health -= max(amount - armor, 0)
 
 # TODO : creae a tween to shrink the size of the thruster
 func _on_boost_timer_timeout() -> void:
@@ -110,15 +127,14 @@ func _on_timer_timeout() -> void:
 	%Collision.set_deferred("disabled",false)
 
 func gain_XP(amount):
-	XP += amount
-	total_XP += amount
+	XP += amount * growth
+	total_XP += amount * growth
 
 func check_XP():
 	if XP > %XP.max_value:
 		XP -= %XP.max_value
 		level += 1
 
-
-func _on_magnet_area_entered(area: Area2D) -> void:
-	if area.has_method("follow"):
-		area.follow(self)
+func _on_magnet_area_entered(_area: Area2D) -> void:
+	if _area.has_method("follow"):
+		_area.follow(self)

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://srf5cgsx63eq"]
+
+[ext_resource type="Script" uid="uid://cjq87wrbk18ca" path="res://scenes/etc/PassiveItem.gd" id="1_kwxqb"]
+[ext_resource type="Texture2D" uid="uid://b2yvwsn7cflyr" path="res://assets/Energy weapons/icons/might.png" id="2_kwxqb"]
+[ext_resource type="Script" uid="uid://dgcffmyxalprq" path="res://scenes/etc/Stats.gd" id="3_v8278"]
+
+[sub_resource type="Resource" id="Resource_l0tb3"]
+script = ExtResource("3_v8278")
+description = "+ 25 Area Range"
+area = 25.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_fcqdy"]
+script = ExtResource("3_v8278")
+description = "+ 35 Area Range"
+area = 35.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_s1tki"]
+script = ExtResource("3_v8278")
+description = "+ 45 Area Range"
+area = 45.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[resource]
+script = ExtResource("1_kwxqb")
+upgrades = Array[ExtResource("3_v8278")]([SubResource("Resource_l0tb3"), SubResource("Resource_fcqdy"), SubResource("Resource_s1tki")])
+title = "Area"
+texture = ExtResource("2_kwxqb")
+metadata/_custom_type_script = "uid://cjq87wrbk18ca"

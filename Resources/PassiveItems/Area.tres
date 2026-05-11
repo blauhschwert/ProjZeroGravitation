@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://cjleh1c1v3p4w"]
+
+[ext_resource type="Script" uid="uid://cjq87wrbk18ca" path="res://scenes/etc/PassiveItem.gd" id="1_1xtmb"]
+[ext_resource type="Texture2D" uid="uid://b2yvwsn7cflyr" path="res://assets/Energy weapons/icons/might.png" id="2_7lchq"]
+[ext_resource type="Script" uid="uid://dgcffmyxalprq" path="res://scenes/etc/Stats.gd" id="3_w1o3g"]
+
+[sub_resource type="Resource" id="Resource_l0tb3"]
+script = ExtResource("3_w1o3g")
+description = "+ 10 % Increased Damage"
+might = 0.1
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_fcqdy"]
+script = ExtResource("3_w1o3g")
+description = "+ 25 % Increased Damage"
+might = 0.25
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_s1tki"]
+script = ExtResource("3_w1o3g")
+description = "+ 30 % Increased Damage"
+might = 0.3
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[resource]
+script = ExtResource("1_1xtmb")
+upgrades = Array[ExtResource("3_w1o3g")]([SubResource("Resource_l0tb3"), SubResource("Resource_fcqdy"), SubResource("Resource_s1tki")])
+title = "MovementSpeed"
+texture = ExtResource("2_7lchq")
+metadata/_custom_type_script = "uid://cjq87wrbk18ca"

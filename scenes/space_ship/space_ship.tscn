@@ -3,13 +3,25 @@
 [ext_resource type="Script" uid="uid://pxnfrkv7y1qr" path="res://scenes/space_ship/space_ship.gd" id="1_byl6i"]
 [ext_resource type="Texture2D" uid="uid://cpdcpgmypf7x" path="res://assets/Spaceships/ship/Capella/Capella.png" id="1_w5ed5"]
 [ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/Spaceships/ship/main_thruster/main_thruster.tscn" id="2_byl6i"]
+[ext_resource type="Texture2D" uid="uid://bmxtyfwpcsdv3" path="res://assets/etc/Gems/F0.png" id="2_snja7"]
 [ext_resource type="PackedScene" uid="uid://btu62w705l1h4" path="res://scenes/space_ship/ui/slot.tscn" id="2_tnmps"]
-[ext_resource type="Resource" uid="uid://du7h33chf6c3n" path="res://Resources/Weapons/BasicShoot.tres" id="3_0sbvu"]
+[ext_resource type="Texture2D" uid="uid://da0maqe860xwi" path="res://assets/Spaceships/ui/UI_Hologram.png" id="3_by78l"]
 [ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/Spaceships/ship/side_thruster/side_thruster.tscn" id="3_etmnf"]
 [ext_resource type="Texture2D" uid="uid://ci0sw3lareo6o" path="res://assets/xp_bar/progress.png" id="4_ru4ik"]
 [ext_resource type="Texture2D" uid="uid://bghjkqcfeh3o1" path="res://assets/xp_bar/under.png" id="5_4vyoi"]
 [ext_resource type="FontFile" uid="uid://cbsy1kd2n7qwv" path="res://assets/arcadeclassic/ARCADECLASSIC.TTF" id="6_4vyoi"]
+[ext_resource type="Resource" uid="uid://d752r6d0gkc8" path="res://Resources/Weapons/LaserBeam.tres" id="6_o5a81"]
 [ext_resource type="Script" uid="uid://bh4tnt6kyqxp8" path="res://scenes/space_ship/ui/options.gd" id="7_o1r3j"]
+[ext_resource type="PackedScene" uid="uid://c5um756ps1wdx" path="res://scenes/space_ship/ui/passive_slot.tscn" id="7_t3mtg"]
+[ext_resource type="Resource" uid="uid://diisu7eh264uv" path="res://Resources/PassiveItems/Magnet.tres" id="8_o5a81"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o1r3j"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(520, 1, 1)
+angle_min = -99.09999
+angle_max = 73.10001
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru4ik"]
 bg_color = Color(0.15, 0.15, 0.15, 0.6862745)
@@ -47,27 +59,89 @@ script = ExtResource("1_byl6i")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1818357413]
 
+[node name="Particel" type="GPUParticles2D" parent="UI" unique_id=762071219]
+process_mode = 3
+visible = false
+position = Vector2(460, 20)
+amount = 100
+texture = ExtResource("2_snja7")
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_o1r3j")
+
+[node name="Panel" type="NinePatchRect" parent="UI" unique_id=745680878]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(500, 240)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_by78l")
+region_rect = Rect2(224, 32, 96, 96)
+
+[node name="Label" type="Label" parent="UI/Panel" unique_id=1608612848]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 10.0
+offset_right = 378.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_4vyoi")
+theme_override_font_sizes/font_size = 24
+text = "LEVEL UP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Weapons" type="HBoxContainer" parent="UI" unique_id=801230995]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -92.0
-offset_right = 64.0
-offset_bottom = -52.0
+offset_left = -464.0
+offset_top = -508.0
+offset_right = -336.0
+offset_bottom = -468.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Slot" parent="UI/Weapons" unique_id=3953803 instance=ExtResource("2_tnmps")]
 layout_mode = 2
-weapon = ExtResource("3_0sbvu")
+item = ExtResource("6_o5a81")
 
 [node name="Slot2" parent="UI/Weapons" unique_id=177196616 instance=ExtResource("2_tnmps")]
 layout_mode = 2
 
 [node name="Slot3" parent="UI/Weapons" unique_id=992367253 instance=ExtResource("2_tnmps")]
+layout_mode = 2
+
+[node name="PassiveSlots" type="HBoxContainer" parent="UI" unique_id=55807596]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -460.0
+offset_right = -336.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PassiveSlot" parent="UI/PassiveSlots" unique_id=1208173886 instance=ExtResource("7_t3mtg")]
+layout_mode = 2
+item = ExtResource("8_o5a81")
+
+[node name="PassiveSlot2" parent="UI/PassiveSlots" unique_id=1498343390 instance=ExtResource("7_t3mtg")]
+layout_mode = 2
+
+[node name="PassiveSlot3" parent="UI/PassiveSlots" unique_id=425246548 instance=ExtResource("7_t3mtg")]
 layout_mode = 2
 
 [node name="XP" type="TextureProgressBar" parent="UI" unique_id=1541178062]
@@ -102,7 +176,7 @@ theme_override_fonts/font = ExtResource("6_4vyoi")
 theme_override_font_sizes/font_size = 24
 text = "L V L : "
 
-[node name="Options" type="BoxContainer" parent="UI" unique_id=236686613 node_paths=PackedStringArray("weapons")]
+[node name="Options" type="BoxContainer" parent="UI" unique_id=236686613 node_paths=PackedStringArray("weapons", "passive_items", "particels", "panel")]
 unique_name_in_owner = true
 process_mode = 3
 z_index = 1
@@ -111,10 +185,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -288.0
-offset_top = -128.0
-offset_right = 288.0
-offset_bottom = 128.0
+offset_left = -160.0
+offset_top = -78.0
+offset_right = 160.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -123,6 +197,9 @@ alignment = 1
 vertical = true
 script = ExtResource("7_o1r3j")
 weapons = NodePath("../Weapons")
+passive_items = NodePath("../PassiveSlots")
+particels = NodePath("../Particel")
+panel = NodePath("../Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000071378]
 texture = ExtResource("1_w5ed5")
@@ -179,7 +256,8 @@ shape = SubResource("CircleShape2D_byl6i")
 [node name="Magnet" type="Area2D" parent="." unique_id=1038779544]
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet" unique_id=1009095304]
+[node name="MagnetCollision" type="CollisionShape2D" parent="Magnet" unique_id=1009095304]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_4vyoi")
 
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]

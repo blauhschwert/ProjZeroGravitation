@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://d3okuxepy6ex0"]
 
 [ext_resource type="Script" uid="uid://caivn7rhihqng" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
+[ext_resource type="Texture2D" uid="uid://dbmo4stmic232" path="res://assets/enemys/bots_sheet_sm.png" id="2_a3pup"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gl05p"]
-radius = 48.0
+radius = 24.0
 
 [sub_resource type="Animation" id="Animation_40wdo"]
 length = 0.001
@@ -64,6 +65,7 @@ script = ExtResource("1_a3pup")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=839456826]
 scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_a3pup")
 hframes = 10
 vframes = 2
 

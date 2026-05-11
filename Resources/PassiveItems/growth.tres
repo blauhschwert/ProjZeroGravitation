@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://v3vyjp4oj13k"]
+
+[ext_resource type="Script" uid="uid://cjq87wrbk18ca" path="res://scenes/etc/PassiveItem.gd" id="1_srdqv"]
+[ext_resource type="Texture2D" uid="uid://dharh2o5gq4b7" path="res://assets/Energy weapons/icons/growth.png" id="2_srdqv"]
+[ext_resource type="Script" uid="uid://dgcffmyxalprq" path="res://scenes/etc/Stats.gd" id="3_xsmiu"]
+
+[sub_resource type="Resource" id="Resource_l0tb3"]
+script = ExtResource("3_xsmiu")
+description = "+ 10 % Growth"
+growth = 0.1
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_fcqdy"]
+script = ExtResource("3_xsmiu")
+description = "+ 20 % Growth"
+growth = 0.2
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_s1tki"]
+script = ExtResource("3_xsmiu")
+description = "+ 20 % Growth"
+growth = 0.2
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[resource]
+script = ExtResource("1_srdqv")
+upgrades = Array[ExtResource("3_xsmiu")]([SubResource("Resource_l0tb3"), SubResource("Resource_fcqdy"), SubResource("Resource_s1tki")])
+title = "MovementSpeed"
+texture = ExtResource("2_srdqv")
+metadata/_custom_type_script = "uid://cjq87wrbk18ca"

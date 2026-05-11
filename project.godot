@@ -45,6 +45,8 @@ folder_colors={
 "res://Globals/": "gray",
 "res://Localize/": "teal",
 "res://Resources/": "purple",
+"res://Resources/Enemys/": "orange",
+"res://Resources/PassiveItems/": "teal",
 "res://Resources/Weapons/": "red",
 "res://Resources/XP/": "green",
 "res://assets/": "orange",

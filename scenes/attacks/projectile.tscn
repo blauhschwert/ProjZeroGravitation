@@ -9,7 +9,8 @@ size = Vector2(10, 10)
 size = Vector2(10, 10)
 
 [sub_resource type="Gradient" id="Gradient_bh6u1"]
-colors = PackedColorArray(0.09600001, 0.35413343, 0.8, 1, 0.8739701, 0.009699991, 0.97, 1)
+offsets = PackedFloat32Array(0, 0.31132075)
+colors = PackedColorArray(0, 0.33599988, 0.42, 1, 0.76, 0.16720001, 0.6414401, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_3ewun"]
 gradient = SubResource("Gradient_bh6u1")
@@ -28,7 +29,9 @@ emission_sphere_radius = 8.0
 direction = Vector3(1, 1, 0)
 initial_velocity_min = -10.0
 initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(6.54, -0.005, -10.47)
+linear_accel_min = 78.259995
+linear_accel_max = 78.259995
 scale_min = 2.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_cxsym")

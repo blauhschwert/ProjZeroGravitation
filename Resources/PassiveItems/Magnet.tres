@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PassiveItem" format=3 uid="uid://diisu7eh264uv"]
+
+[ext_resource type="Script" uid="uid://cjq87wrbk18ca" path="res://scenes/etc/PassiveItem.gd" id="1_lqj7e"]
+[ext_resource type="Texture2D" uid="uid://bei18klvr1ii4" path="res://assets/Energy weapons/icons/magnet.png" id="2_ik5hv"]
+[ext_resource type="Script" uid="uid://dgcffmyxalprq" path="res://scenes/etc/Stats.gd" id="3_aagnh"]
+
+[sub_resource type="Resource" id="Resource_l0tb3"]
+script = ExtResource("3_aagnh")
+description = "+ 15 Magnet Range"
+magnet = 15.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_fcqdy"]
+script = ExtResource("3_aagnh")
+description = "+20 Magnet Range"
+magnet = 20.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[sub_resource type="Resource" id="Resource_s1tki"]
+script = ExtResource("3_aagnh")
+description = "+ 25 Magnet Range"
+magnet = 25.0
+metadata/_custom_type_script = "uid://dgcffmyxalprq"
+
+[resource]
+script = ExtResource("1_lqj7e")
+upgrades = Array[ExtResource("3_aagnh")]([SubResource("Resource_l0tb3"), SubResource("Resource_fcqdy"), SubResource("Resource_s1tki")])
+title = "Magnet"
+texture = ExtResource("2_ik5hv")
+metadata/_custom_type_script = "uid://cjq87wrbk18ca"

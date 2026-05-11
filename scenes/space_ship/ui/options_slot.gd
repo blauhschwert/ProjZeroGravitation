@@ -1,17 +1,22 @@
 class_name UpgradeOption
 extends TextureButton
 
-@export var weapon : Weapon:
+@export var item : Item:
 	set(value):
-		weapon = value
+		item = value
 		
-		texture_normal = value.texture
-		$Label.text = "LvL: " + str(weapon.level + 1)
-		$Description.text = value.upgrades[value.level - 1].description
+		if value.upgrades.size() > 0 and value.upgrades.size() +1 != value.level:
+			texture_normal = value.texture
+			$Label.text = "LvL: " + str(item.level + 1)
+			$Description.text = value.upgrades[value.level - 1].description
+		else:
+			texture_normal = value.evolution.texture
+			$Label.text = ""
+			$Description.text = "EVOLUTION"
 
 
 func _on_icon_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click"):
-		#print(weapon.title)
-		weapon.upgrade_item()
+	if event.is_action_pressed("click") and Item:
+		#print(item.title)
+		item.upgrade_item()
 		get_parent().close_option()

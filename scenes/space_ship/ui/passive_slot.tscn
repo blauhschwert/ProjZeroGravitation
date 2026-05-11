@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c5um756ps1wdx"]
+
+[ext_resource type="Script" uid="uid://cbqmiefhte2aq" path="res://scenes/space_ship/ui/passive_slot.gd" id="1_08711"]
+
+[node name="PassiveSlot" type="PanelContainer" unique_id=1208173886]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -156.0
+offset_right = 32.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_08711")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=165474952]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoolDown" type="Timer" parent="." unique_id=1178767390]
+autostart = true
