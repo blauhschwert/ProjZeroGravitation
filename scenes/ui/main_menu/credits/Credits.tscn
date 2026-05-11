@@ -69,4 +69,16 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="body" type="BoxContainer" parent="." unique_id=861838966]
+layout_mode = 0
+offset_left = -336.0
+offset_top = -78.0
+offset_right = 336.0
+offset_bottom = 154.0
+
+[node name="RichTextLabel" type="Label" parent="body" unique_id=1585522997]
+layout_mode = 2
+size_flags_vertical = 0
+text = "By Blauhschwert"
+
 [connection signal="pressed" from="Background/BoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

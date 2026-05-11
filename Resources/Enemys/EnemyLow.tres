@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://cpn4yci1cgiug"]
+
+[ext_resource type="Script" uid="uid://bat2k7ylrwix" path="res://scenes/enemy/EnemyType.gd" id="1_5prbm"]
+[ext_resource type="Script" uid="uid://cgdh7odu4sm01" path="res://scenes/etc/Gem.gd" id="1_5136x"]
+[ext_resource type="Texture2D" uid="uid://dbmo4stmic232" path="res://assets/enemys/bots_sheet_sm.png" id="2_p3m2h"]
+[ext_resource type="Resource" uid="uid://domoustm6g5kx" path="res://Resources/XP/ex_gem.tres" id="2_t4eow"]
+
+[resource]
+script = ExtResource("1_5prbm")
+title = "BaseEnemy"
+texture = ExtResource("2_p3m2h")
+health = 6.0
+damage = 2.0
+drops = Array[ExtResource("1_5136x")]([ExtResource("2_t4eow")])
+frame = 1
+metadata/_custom_type_script = "uid://bat2k7ylrwix"

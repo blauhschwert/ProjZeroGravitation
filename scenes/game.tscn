@@ -2,20 +2,25 @@
 
 [ext_resource type="Script" uid="uid://csf0spj4obf8h" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://5qy3qnldw0i8" path="res://scenes/background/space_background.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://573brmsl2te8" path="res://scenes/spawner/spawner.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cbfvjm7my0rrk" path="res://scenes/space_ship/space_ship.tscn" id="2_yqjtg"]
 [ext_resource type="AudioStream" uid="uid://cqbug50w7v2pa" path="res://assets/music/space synth set track 4.wav" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bgv2e7ymykovv" path="res://scenes/ui/main_menu/main_menu/main_menu.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://d3okuxepy6ex0" path="res://scenes/enemy/enemy.tscn" id="6_u5sy4"]
 
 [node name="MainGame" type="Node2D" unique_id=1883612101]
 script = ExtResource("1_lnu2h")
 
 [node name="SpaceBackground" parent="." unique_id=1323746928 instance=ExtResource("1_yqjtg")]
 
-[node name="SpaceShip" parent="." unique_id=1378069969 instance=ExtResource("2_yqjtg")]
-z_index = 1
+[node name="Spawner" parent="." unique_id=1051189957 node_paths=PackedStringArray("player") instance=ExtResource("2_u5sy4")]
+player = NodePath("../SpaceShip")
 
-[node name="Camera2D" type="Camera2D" parent="SpaceShip" unique_id=1128731552]
-zoom = Vector2(1.3, 1.3)
+[node name="SpaceShip" parent="." unique_id=1378069969 instance=ExtResource("2_yqjtg")]
+
+[node name="Camera2D2" type="Camera2D" parent="SpaceShip" unique_id=1128731552]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=419105450]
 stream = ExtResource("4_lbhrr")
@@ -23,6 +28,13 @@ autoplay = true
 bus = &"Music"
 
 [node name="MainMenu" type="CanvasLayer" parent="." unique_id=968013713]
+layer = 0
 visible = false
 
 [node name="MainMenu" parent="MainMenu" unique_id=655084936 instance=ExtResource("6_p57ef")]
+
+[node name="Enemy" parent="." unique_id=304720485 node_paths=PackedStringArray("player_reference") instance=ExtResource("6_u5sy4")]
+position = Vector2(756, 137)
+player_reference = NodePath("../SpaceShip")
+
+[connection signal="game_started" from="MainMenu/MainMenu" to="." method="_on_main_menu_game_started"]

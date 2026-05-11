@@ -8,11 +8,13 @@ var level_counter = 0
 
 @onready var main_menu: CanvasLayer = $MainMenu
 
+@onready var space_ship: SpaceShip = $SpaceShip
+@onready var spawner: Spawner = $Spawner
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	randomize()
-	$SpaceShip.player_died.connect(create_game_over_screen)
+	game_state = GameStates.TITLE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -23,7 +25,7 @@ func _process(_delta: float) -> void:
 			pass
 		GameStates.PAUSED:
 			pass
-	
+		
 	# loop music
 	if not $Music.playing:
 		$Music.play()
@@ -34,6 +36,10 @@ func show_level_text() -> void:
 func increase_level_counter() -> void:
 	level_counter += 1
 
-func create_game_over_screen() -> void:
-	$CanvasLayer/GameOverPanel.visible = true
-	set_process(false)
+# TODO : add a config to start movements and other inputs on game start
+func _set_player_inputs() -> void:
+	pass
+
+
+func _on_main_menu_game_started() -> void:
+	game_state = GameStates.GAME

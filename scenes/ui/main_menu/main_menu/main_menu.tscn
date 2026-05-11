@@ -31,5 +31,6 @@ layout_mode = 1
 [connection signal="hide_title_screen" from="TitleScreenMain" to="." method="_on_title_screen_main_hide_title_screen"]
 [connection signal="open_credits" from="TitleScreenMain" to="." method="_on_title_screen_main_open_credits"]
 [connection signal="open_options" from="TitleScreenMain" to="." method="_on_title_screen_main_open_options"]
+[connection signal="play_game" from="TitleScreenMain" to="." method="_on_title_screen_main_play_game"]
 [connection signal="close_options" from="Options" to="." method="_on_options_close_options"]
 [connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]

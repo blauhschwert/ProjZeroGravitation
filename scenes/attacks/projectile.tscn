@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d06udx6ewq8or"]
+
+[ext_resource type="Script" uid="uid://culckyeww8gss" path="res://scenes/attacks/projectile.gd" id="1_bh6u1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3ewun"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fitt2"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_bh6u1"]
+colors = PackedColorArray(0.09600001, 0.35413343, 0.8, 1, 0.8739701, 0.009699991, 0.97, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ewun"]
+gradient = SubResource("Gradient_bh6u1")
+
+[sub_resource type="Curve" id="Curve_fitt2"]
+_data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(0.99579823, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cxsym"]
+curve = SubResource("Curve_fitt2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0p3hu"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+direction = Vector3(1, 1, 0)
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_cxsym")
+color_ramp = SubResource("GradientTexture1D_3ewun")
+turbulence_enabled = true
+turbulence_noise_speed = Vector3(0, 1, 0)
+turbulence_influence_min = 0.155
+turbulence_influence_max = 0.54
+
+[node name="Projectile" type="Area2D" unique_id=988212089]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_bh6u1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005720844]
+texture = SubResource("PlaceholderTexture2D_3ewun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415393784]
+shape = SubResource("RectangleShape2D_fitt2")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=703855718]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1815530064]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_0p3hu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_screen_exited"]

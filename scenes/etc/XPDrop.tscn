@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bpyianecldrgi"]
+
+[ext_resource type="Script" uid="uid://bujhbcou0a6x2" path="res://scenes/etc/XPDrop.gd" id="1_f0a51"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f54wj"]
+
+[node name="XPDrop" type="Area2D" unique_id=2060084775]
+collision_layer = 64
+script = ExtResource("1_f0a51")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1038892063]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542180322]
+shape = SubResource("CircleShape2D_f54wj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

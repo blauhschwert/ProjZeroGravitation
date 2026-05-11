@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" format=3 uid="uid://domoustm6g5kx"]
+
+[ext_resource type="Texture2D" uid="uid://bt1hl2pcv1cep" path="res://assets/etc/Gems/F2.png" id="1_yfsrm"]
+[ext_resource type="Script" uid="uid://cgdh7odu4sm01" path="res://scenes/etc/Gem.gd" id="2_a0cig"]
+
+[resource]
+script = ExtResource("2_a0cig")
+XP = 5.0
+title = "BaseGem"
+icon = ExtResource("1_yfsrm")
+description = "Gains Experience Points"
+metadata/_custom_type_script = "uid://cgdh7odu4sm01"

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://btu62w705l1h4"]
+
+[ext_resource type="Script" uid="uid://cpapmmtx8sjta" path="res://scenes/space_ship/ui/slot.gd" id="1_632lj"]
+
+[node name="Slot" type="PanelContainer" unique_id=3953803]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -118.0
+offset_right = 35.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_632lj")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=987040029]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoolDown" type="Timer" parent="." unique_id=1008432366]
+autostart = true
+
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]

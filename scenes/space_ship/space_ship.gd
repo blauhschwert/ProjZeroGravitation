@@ -8,6 +8,32 @@ const NEBULAE = preload("res://assets/Spaceships/ship/Nebulae/Nebulae.png")
 const AURORAS = preload("res://assets/Spaceships/ship/Auroras/Auroras.png")
 const CAPELLA = preload("res://assets/Spaceships/ship/Capella/Capella.png")
 
+
+var health : float = 25:
+	set(value):
+		health = value
+		%HealthBar.value = value
+
+var nearest_enemy : Enemy
+var nearest_enemy_distance : float = INF
+
+var XP : int = 0:
+	set(value):
+		XP = value
+		%XP.value = value
+var total_XP : int = 0
+var level : int = 1:
+	set(value):
+		level = value
+		%Level.text = "LvL : " + str(value)
+		%Options.show_option()
+
+		
+		if level >= 3:
+			%XP.max_value = 20
+		elif level >= 7:
+			%XP.max_value = 40
+
 var direction : Vector2 = Vector2.ZERO
 var max_speed : float = 230.0
 var normal_speed : float = 230.0
@@ -20,6 +46,9 @@ var boost_speed : float = 550.0
 var steering_factor : float = 10.0
 
 func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("test_u"):
+		%Options.show_option()
 	
 	if event.is_action_pressed("boost"):
 		main_thruster.scale = Vector2(1.3,1.3)
@@ -46,8 +75,16 @@ func _process(delta: float) -> void:
 	if $HealthBar.value <= 0.0:
 		player_died.emit()
 	
+	if is_instance_valid(nearest_enemy):
+		nearest_enemy_distance = nearest_enemy.separation
+	else:
+		nearest_enemy_distance = INF
+	
+	
 	velocity += steering_vector * steering_factor * delta
 	move_and_collide(velocity * delta)
+	check_XP()
+	
 	
 	if direction.length() > 0.0:
 		rotation = velocity.angle()
@@ -56,11 +93,32 @@ func set_speed(current_speed : int) -> void:
 	normal_speed = current_speed
 
 func take_damage(amount : int) -> void:
-	if $HealthBar.value > 0.0:
-		$HealthBar.value -= amount
-
+	health -= amount
 
 # TODO : creae a tween to shrink the size of the thruster
 func _on_boost_timer_timeout() -> void:
 	normal_speed = max_speed
 	main_thruster.scale = Vector2(1.0,1.0)
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	take_damage(body.damage)
+
+
+func _on_timer_timeout() -> void:
+	%Collision.set_deferred("disabled",true)
+	%Collision.set_deferred("disabled",false)
+
+func gain_XP(amount):
+	XP += amount
+	total_XP += amount
+
+func check_XP():
+	if XP > %XP.max_value:
+		XP -= %XP.max_value
+		level += 1
+
+
+func _on_magnet_area_entered(area: Area2D) -> void:
+	if area.has_method("follow"):
+		area.follow(self)

@@ -3,7 +3,21 @@
 [ext_resource type="Script" uid="uid://pxnfrkv7y1qr" path="res://scenes/space_ship/space_ship.gd" id="1_byl6i"]
 [ext_resource type="Texture2D" uid="uid://cpdcpgmypf7x" path="res://assets/Spaceships/ship/Capella/Capella.png" id="1_w5ed5"]
 [ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/Spaceships/ship/main_thruster/main_thruster.tscn" id="2_byl6i"]
+[ext_resource type="PackedScene" uid="uid://btu62w705l1h4" path="res://scenes/space_ship/ui/slot.tscn" id="2_tnmps"]
+[ext_resource type="Resource" uid="uid://du7h33chf6c3n" path="res://Resources/Weapons/BasicShoot.tres" id="3_0sbvu"]
 [ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/Spaceships/ship/side_thruster/side_thruster.tscn" id="3_etmnf"]
+[ext_resource type="Texture2D" uid="uid://ci0sw3lareo6o" path="res://assets/xp_bar/progress.png" id="4_ru4ik"]
+[ext_resource type="Texture2D" uid="uid://bghjkqcfeh3o1" path="res://assets/xp_bar/under.png" id="5_4vyoi"]
+[ext_resource type="FontFile" uid="uid://cbsy1kd2n7qwv" path="res://assets/arcadeclassic/ARCADECLASSIC.TTF" id="6_4vyoi"]
+[ext_resource type="Script" uid="uid://bh4tnt6kyqxp8" path="res://scenes/space_ship/ui/options.gd" id="7_o1r3j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru4ik"]
+bg_color = Color(0.15, 0.15, 0.15, 0.6862745)
+skew = Vector2(0.3, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5ed5"]
 radius = 15.0
@@ -21,9 +35,94 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_byl6i"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vyoi"]
+radius = 50.0
+
 [node name="SpaceShip" type="CharacterBody2D" unique_id=723755652]
-collision_mask = 0
+z_index = 1
 script = ExtResource("1_byl6i")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1818357413]
+
+[node name="Weapons" type="HBoxContainer" parent="UI" unique_id=801230995]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -92.0
+offset_right = 64.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Slot" parent="UI/Weapons" unique_id=3953803 instance=ExtResource("2_tnmps")]
+layout_mode = 2
+weapon = ExtResource("3_0sbvu")
+
+[node name="Slot2" parent="UI/Weapons" unique_id=177196616 instance=ExtResource("2_tnmps")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Weapons" unique_id=992367253 instance=ExtResource("2_tnmps")]
+layout_mode = 2
+
+[node name="XP" type="TextureProgressBar" parent="UI" unique_id=1541178062]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 3.0
+offset_bottom = 19.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+max_value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_ru4ik")
+texture_over = ExtResource("4_ru4ik")
+texture_progress = ExtResource("5_4vyoi")
+
+[node name="Panel" type="Panel" parent="UI/XP" unique_id=325300235]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 32.0
+offset_right = 952.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ru4ik")
+
+[node name="Level" type="Label" parent="UI/XP/Panel" unique_id=692567237]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -12.0
+offset_right = 96.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("6_4vyoi")
+theme_override_font_sizes/font_size = 24
+text = "L V L : "
+
+[node name="Options" type="BoxContainer" parent="UI" unique_id=236686613 node_paths=PackedStringArray("weapons")]
+unique_name_in_owner = true
+process_mode = 3
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -128.0
+offset_right = 288.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+script = ExtResource("7_o1r3j")
+weapons = NodePath("../Weapons")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000071378]
 texture = ExtResource("1_w5ed5")
@@ -55,15 +154,35 @@ wait_time = 0.6
 one_shot = true
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=245665514]
-visible = false
+unique_name_in_owner = true
 offset_left = -24.0
 offset_top = 20.0
 offset_right = 23.0
 offset_bottom = 26.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_byl6i")
-max_value = 8.0
+max_value = 25.0
 step = 1.0
-value = 8.0
+value = 25.0
 show_percentage = false
 
+[node name="DamageArea" type="Area2D" parent="." unique_id=2102983706]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="DamageArea" unique_id=688705971]
+unique_name_in_owner = true
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_byl6i")
+
+[node name="Timer" type="Timer" parent="." unique_id=1361563185]
+
+[node name="Magnet" type="Area2D" parent="." unique_id=1038779544]
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet" unique_id=1009095304]
+shape = SubResource("CircleShape2D_4vyoi")
+
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]

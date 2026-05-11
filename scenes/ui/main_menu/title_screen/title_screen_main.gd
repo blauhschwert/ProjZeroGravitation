@@ -1,6 +1,7 @@
 class_name TitleScreen
 extends Control
 
+signal play_game
 signal open_options
 signal open_credits
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 func _on_start_button_pressed() -> void:
 	hide()
+	play_game.emit()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

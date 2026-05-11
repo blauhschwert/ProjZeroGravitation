@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="SingleShoot" format=3 uid="uid://du7h33chf6c3n"]
+
+[ext_resource type="PackedScene" uid="uid://d06udx6ewq8or" path="res://scenes/attacks/projectile.tscn" id="1_hdau6"]
+[ext_resource type="Script" uid="uid://bdffkvhlw4tuu" path="res://scenes/attacks/SingleShoot.gd" id="2_lguw6"]
+[ext_resource type="Texture2D" uid="uid://c3dynlxmtbevc" path="res://assets/Energy weapons/icons/baisc_shoot.png" id="3_lguw6"]
+[ext_resource type="Script" uid="uid://bl82kplwdxkfs" path="res://scenes/space_ship/upgrades/Upgrade.gd" id="4_ydr1u"]
+[ext_resource type="Script" uid="uid://iaf3kpc34kw5" path="res://scenes/space_ship/upgrades/ProjectileUpgrade.gd" id="5_gbiv6"]
+
+[sub_resource type="Resource" id="Resource_28dyu"]
+script = ExtResource("5_gbiv6")
+damage = 1.0
+description = "+ 1 Damage"
+metadata/_custom_type_script = "uid://iaf3kpc34kw5"
+
+[sub_resource type="Resource" id="Resource_wdcml"]
+script = ExtResource("5_gbiv6")
+cooldown = -0.2
+description = "- 0.2s cooldown"
+metadata/_custom_type_script = "uid://iaf3kpc34kw5"
+
+[sub_resource type="Resource" id="Resource_p4mwb"]
+script = ExtResource("5_gbiv6")
+speed = 200.0
+description = "+ 200 speed"
+metadata/_custom_type_script = "uid://iaf3kpc34kw5"
+
+[sub_resource type="Resource" id="Resource_7i674"]
+script = ExtResource("5_gbiv6")
+damage = 2.0
+description = "+ 2 Damage"
+metadata/_custom_type_script = "uid://iaf3kpc34kw5"
+
+[sub_resource type="Resource" id="Resource_me44a"]
+script = ExtResource("5_gbiv6")
+cooldown = -0.1
+metadata/_custom_type_script = "uid://iaf3kpc34kw5"
+
+[resource]
+script = ExtResource("2_lguw6")
+title = "BasicShoot"
+texture = ExtResource("3_lguw6")
+damage = 1.0
+cooldown = 0.66
+speed = 430.0
+upgrades = Array[ExtResource("4_ydr1u")]([SubResource("Resource_28dyu"), SubResource("Resource_wdcml"), SubResource("Resource_p4mwb"), SubResource("Resource_7i674"), SubResource("Resource_me44a")])
+metadata/_custom_type_script = "uid://bdffkvhlw4tuu"

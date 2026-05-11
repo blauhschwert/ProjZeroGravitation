@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dfdlyanmcd4bw"]
+
+[ext_resource type="Texture2D" uid="uid://c3dynlxmtbevc" path="res://assets/Energy weapons/icons/baisc_shoot.png" id="1_72fbn"]
+[ext_resource type="Script" uid="uid://c5d5ipykow87g" path="res://scenes/space_ship/ui/options_slot.gd" id="1_ryxop"]
+[ext_resource type="Texture2D" uid="uid://da0maqe860xwi" path="res://assets/Spaceships/ui/UI_Hologram.png" id="2_pq3yh"]
+
+[node name="Icon" type="TextureButton" unique_id=536059858]
+custom_minimum_size = Vector2(360, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -30.0
+offset_right = 180.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+action_mode = 0
+texture_normal = ExtResource("1_72fbn")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("1_ryxop")
+
+[node name="Label" type="Label" parent="." unique_id=1031608303]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="Description" type="Label" parent="." unique_id=130789569]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 31.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=142372371]
+z_index = -1
+custom_minimum_size = Vector2(315, 40)
+layout_mode = 0
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 392.0
+offset_bottom = 68.0
+texture = ExtResource("2_pq3yh")
+region_rect = Rect2(224, 32, 96, 96)
+
+[connection signal="gui_input" from="." to="." method="_on_icon_gui_input"]

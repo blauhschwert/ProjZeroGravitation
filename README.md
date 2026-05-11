@@ -45,13 +45,19 @@ Every run is different thanks to randomized upgrades and enemy patterns.
 ## By Blauhschwert 
 
 ## GDQuest Course Learn 2D GameDev from Zero with Godot 4
+
 - background and spaceship inspo : https://school.gdquest.com/courses/learn_2d_gamedev_godot_4/to_space_and_beyond/module_overview
 
-- explosion Art : https://opengameart.org/content/explosion-48px-96px-and-vector-version
+- Enemy Robots : https://victory-works-studios-llc.itch.io/free-sprite-sheet-robots
 
 - sound effects : https://raylibtech.itch.io/rfxgen
 
 - background music : https://1144ghost.itch.io/atmospheric-space-music
+
+
+- weapon icons : https://percyes.itch.io/futuristic-sci-fi-inventory-icons
+
+- attack animations : https://nyknck.itch.io/fx084
 
 ## Installation
 
